@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name" translatable="false">AndroidNewReSideMenuDemo</string>
+    <string name="settings" translatable="false">Settings</string>
+    <string name="profile" translatable="false">Profile</string>
+    <string name="residemenu_demo" translatable="false">ReSideMenu DEMO</string>
+    <string name="swipe_gesture" translatable="false">Swipe gesture</string>
+    <string name="swipe_to_open_menu" translatable="false">1. Swipe right/left to open menu</string>
+    <string name="click_me_to_open_menu" translatable="false">2. Click me to open menu</string>
+    <string name="you_cant_use_menu" translatable="false">This is an ignored view，you can’t use gesture to operate menu here.</string>
+</resources>
