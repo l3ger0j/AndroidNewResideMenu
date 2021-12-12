@@ -1,11 +1,11 @@
-include ':ResideMenu', ':ResideMenuDemo'
-
-//override your build tools version in gradle.properties
-
-if (!System.properties['buildToolsVersion']) {
-	System.properties['buildToolsVersion'] =  "19.1.0"
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
 }
-
-if (!System.properties['androidGradlePluginVersion']) {
-	System.properties['androidGradlePluginVersion'] = "1.0.+"
-}
+rootProject.name = "AndroidNewReSideMenu"
+include ':library'
+include ':demo'

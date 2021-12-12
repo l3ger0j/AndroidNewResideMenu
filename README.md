@@ -1,62 +1,29 @@
-#AndroidResideMenu
-------
-### 中文说明请点击 [这里][1]
+## AndroidRsideMenu (fork **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**)
 
-The idea of ResideMenu is from Dribble [1][2] and [2][3]. It has come true and run in iOS devices. [iOS ResideMenu][4]
-This project is the RefsideMenu Android version. The visual effect is partly referred to iOS version of ResideMenu.
-And thanks to the authors for the above idea and contribution.
-<img src="https://github.com/SpecialCyCi/AndroidResideMenu/raw/master/1.png" width="320" height="568" />
-<img src="https://github.com/SpecialCyCi/AndroidResideMenu/raw/master/2.gif" width="320" height="568" />
-
-Now with 3D support !
-<img src="https://github.com/SpecialCyCi/AndroidResideMenu/raw/master/3Dsupport.png" width="320" height="568" />
-## DEMO
-This copy is the demo.
-
-## Version Migration
-
-#### Upgrading to `v1.4` from `v1.3`, `v1.2`, `v1.1`, `v1.0` 
-
-Duplicate the followed code in dispatchTouchEvent() of Activity, replace the old `dispatchTouchEvent()` code.
-
-```java
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        return resideMenu.dispatchTouchEvent(ev);
-    }
-```
+**This fork was made WhoYouAndM3. The original project (hereinafter **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**) with an MIT license does not bear any responsibility for this fork **[AndroidRsideMenu](https://github.com/l3ger0j/AndroidRsideMenu.git)**.**
 
 ## Requirements
+1. **[Android Studio](https://developer.android.com/studio/index.html)**
+2. Android SDK (included in the package of Android Studio)
+3. Android Virtual Device or not used smartphone (Android Version 5.0+)
 
-Run in Android 2.3 +
+## Build
 
-## Installation
+1. Clone the repository from:  
+   `  
+   git clone --recursive https://github.com/l3ger0j/AndroidRsideMenu.git `
+2. Open the folder you just downloaded in Android Studio
+3. Press on "Make Project"
 
-### Gradle
-
-```gradle
-repositories {
-    mavenCentral()
-}
-dependencies {
-    compile 'com.specyci:residemenu:1.6+'
-}
-```
+## Import
+### Gradle (temporarily not supported)
 
 ### Other
-
- 1. import ResideMenu project to your workspace.
- 2. make it as a dependency library project to your main project.
-<br>**( see [example][5] )**
-
-**or**
-
-If you want to merge ResideMenu with your project, you should follow these steps.
-
- 1. Copy all files from src/com/special/ResideMenu to your project.
- 2. Copy libs/nineoldandroids-library-2.4.0.jar to your project’s corresponding path: libs/
- 3. Copy res/drawable-hdpi/shadow.9.png to your project’s corresponding path: res/drawable-hdpi/
- 4. Copy res/layout/residemenu.xml and residemenu_item.xml to your project’s corresponding path: res/layout
+1. Clone the repository from:  
+   `  
+   git clone --recursive https://github.com/l3ger0j/AndroidRsideMenu.git `
+2. Import library project to your workspace.
+3. Make it as a dependency library project to your main project.
 
 ## Usage
 init ResideMenu: write these code in Activity onCreate()
@@ -112,6 +79,7 @@ disable a swipe direction
   resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 ```
 
+
 ## Custom Usage
 
 Do your reside menu configurations, by creating an instance of ResideMenu with your custom layout's resource Ids. If you want to use default layout, just pass that variable as -1.
@@ -135,8 +103,8 @@ As your configuration's completed, now you can customize side menus by getting i
         // TODO: Do whatever you need to with rightMenu
 ```
 
-##Ignored Views
-On some occasions, the slipping gesture function for locking/unlocking menu, may have conflicts with your widgets such as viewpager.By then you can add the viewpager to ignored view.
+## Ignored Views
+On some occasions, the slipping gesture function for locking/unlocking menu, may have conflicts with your widgets such as viewpager. By then you can add the viewpager to ignored view.
 ```java
         // add gesture operation's ignored views
         FrameLayout ignored_view = (FrameLayout) findViewById(R.id.ignored_view);
@@ -144,13 +112,7 @@ On some occasions, the slipping gesture function for locking/unlocking menu, may
 ```
 So that in ignored view’s workplace, the slipping gesture will not be allowed to operate menu.
 
-##About me
-A student from SCAU China.<br>
-Email: specialcyci#gmail.com
-
-
-  [1]: https://github.com/SpecialCyCi/AndroidResideMenu/blob/master/README_CN.md
-  [2]: http://dribbble.com/shots/1116265-Instasave-iPhone-App
-  [3]: http://dribbble.com/shots/1114754-Social-Feed-iOS7
-  [4]: https://github.com/romaonthego/RESideMenu
-  [5]: https://github.com/SpecialCyCi/AndroidResideMenu/blob/master/ResideMenuDemo/project.properties
+## Know issues
+1. When trying to switch from the open left menu to the right (and vice versa), the shadow layout closes access to the left or right menu, respectively.
+2. These methods are outdated and they need to come up with a replacement: fitSystemWindows and setTransitionStyle
+3. There are quite noticeable performance issues
