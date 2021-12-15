@@ -5,6 +5,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,6 +21,8 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
     private ResideNewMenuItem itemProfile;
     private ResideNewMenuItem itemCalendar;
     private ResideNewMenuItem itemSettings;
+    private static final String MENU_STATE = "MenuActivity.MENU_STATE";
+    private static final String MENU_DIRECTION = "MenuActivity.MENU_DIRECTION";
 
     /**
      * Called when the activity is first created.
@@ -29,12 +32,22 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         mContext = this;
-        setUpMenu();
-        if(savedInstanceState == null)
+        setUpMenu(savedInstanceState);
+        if(savedInstanceState == null) {
             changeFragment(new HomeFragment());
+        }
     }
 
-    private void setUpMenu() {
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (resideMenu != null) {
+            outState.putBoolean(MENU_STATE, resideMenu.isOpened());
+            outState.putInt(MENU_DIRECTION, resideMenu.getCurrentDirection());
+        }
+    }
+
+    private void setUpMenu(Bundle savedInstanceState) {
 
         // attach to current activity;
         resideMenu = new ResideNewMenu(this);
@@ -42,7 +55,6 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(this);
         resideMenu.setMenuListener(menuListener);
-        //valid scale factor is between 0.0f and 1.0f. leftmenu'width is 150dip. 
         resideMenu.setScaleValue(0.6f);
 
         // create menu items;
@@ -65,9 +77,13 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         // resideMenu.setSwipeDirectionDisable(ResideNewMenu.DIRECTION_RIGHT);
 
         findViewById(R.id.title_bar_left_menu).setOnClickListener(view ->
-                resideMenu.openMenu(ResideNewMenu.DIRECTION_LEFT));
+                resideMenu.openMenu(ResideNewMenu.DIRECTION_LEFT, true));
         findViewById(R.id.title_bar_right_menu).setOnClickListener(view ->
-                resideMenu.openMenu(ResideNewMenu.DIRECTION_RIGHT));
+                resideMenu.openMenu(ResideNewMenu.DIRECTION_RIGHT, true));
+
+        if (savedInstanceState != null && savedInstanceState.getBoolean(MENU_STATE)) {
+            resideMenu.openMenu(savedInstanceState.getInt(MENU_DIRECTION));
+        }
     }
 
     @Override
@@ -108,11 +124,9 @@ public class MenuActivity extends FragmentActivity implements View.OnClickListen
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_fragment, targetFragment, "fragment")
-                .setTransitionStyle(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();
     }
 
-    // What good method is to access resideMenu？
     public ResideNewMenu getResideMenu(){
         return resideMenu;
     }

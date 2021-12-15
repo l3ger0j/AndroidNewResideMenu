@@ -79,6 +79,27 @@ disable a swipe direction
   resideMenu.setSwipeDirectionDisable(ResideMenu.DIRECTION_RIGHT);
 ```
 
+use icons from iconify:
+```java
+IconDrawable drawable = new IconDrawable(context, FontAwesomeIcons.fa_home)
+                           .colorRes(R.color.ab_icon)
+                           .actionBarSize();
+itemHome = new ResideMenuItem(this, drawable, "Home");
+```
+
+load background from URL:
+```java
+//Use this block on your Application class
+ResideNewMenu.imageLoader = new ResideMenu.ImageLoader() {
+    @Override
+    public void loadFromUrl(String url, ImageView imageView) {
+        //Exemple of loading from URL with picasso
+        Picasso.with(imageView.getContext()).load(url).into(imageView);
+    }
+};
+//and load from a url
+resideMenu.setBackground("some url here");
+```
 
 ## Custom Usage
 
@@ -114,5 +135,11 @@ So that in ignored view’s workplace, the slipping gesture will not be allowed 
 
 ## Know issues
 1. When trying to switch from the open left menu to the right (and vice versa), the shadow layout closes access to the left or right menu, respectively.
-2. These methods are outdated and they need to come up with a replacement: fitSystemWindows and setTransitionStyle
+2. These methods are outdated and they need to come up with a replacement: fitSystemWindows and setTransitionStyle (setTransitionStyle was deleted).
 3. There are quite noticeable performance issues
+
+## Thanks
+**[@akobylianskyi](https://github.com/akobylianskyi)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/101);
+**[@faogustavo](https://github.com/faogustavo)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/114);
+**[@niteshsirohi1](https://github.com/niteshsirohi1)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/124);
+**[@rivasedg261](https://github.com/rivasedg261)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/162).
