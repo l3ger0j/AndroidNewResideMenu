@@ -1,4 +1,4 @@
-## AndroidRsideMenu (fork **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**)
+## AndroidNewResideMenu (fork **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**)
 
 **This fork was made WhoYouAndM3. The original project (hereinafter **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**) with an MIT license does not bear any responsibility for this fork **[AndroidRsideMenu](https://github.com/l3ger0j/AndroidRsideMenu.git)**.**
 
@@ -6,14 +6,6 @@
 1. **[Android Studio](https://developer.android.com/studio/index.html)**
 2. Android SDK (included in the package of Android Studio)
 3. Android Virtual Device or not used smartphone (Android Version 5.0+)
-
-## Build
-
-1. Clone the repository from:  
-   `  
-   git clone --recursive https://github.com/l3ger0j/AndroidRsideMenu.git `
-2. Open the folder you just downloaded in Android Studio
-3. Press on "Make Project"
 
 ## Import
 ### Gradle (temporarily not supported)
@@ -52,16 +44,22 @@ If you want to use slipping gesture to operate(lock/unlock) the menu, override t
 ```
 **On some occasions, the slipping gesture function for locking/unlocking menu, may have conflicts with your widgets, such as viewpager. By then you can add the viewpager to ignored view, please refer to next chapter – Ignored Views.**
 
-open/close menu
+open/close menu with animation (default true)
 ```java
-resideMenu.openMenu(ResideMenu.DIRECTION_LEFT); // or ResideMenu.DIRECTION_RIGHT
+resideMenu.openMenu(ResideNewMenu.DIRECTION_LEFT); // or ResideMenu.DIRECTION_RIGHT
+resideMenu.closeMenu();
+```
+
+open/close menu withnout animation
+```java
+resideMenu.openMenu(ResideNewMenu.DIRECTION_LEFT, false); // or ResideNewMenu.DIRECTION_RIGHT
 resideMenu.closeMenu();
 ```
 
 listen in the menu state
 ```java
     resideMenu.setMenuListener(menuListener);
-    private ResideMenu.OnMenuListener menuListener = new ResideMenu.OnMenuListener() {
+    private ResideNewMenu.OnMenuListener menuListener = new ResideNewMenu.OnMenuListener() {
         @Override
         public void openMenu() {
             Toast.makeText(mContext, "Menu is opened!", Toast.LENGTH_SHORT).show();
@@ -84,13 +82,13 @@ use icons from iconify:
 IconDrawable drawable = new IconDrawable(context, FontAwesomeIcons.fa_home)
                            .colorRes(R.color.ab_icon)
                            .actionBarSize();
-itemHome = new ResideMenuItem(this, drawable, "Home");
+itemHome = new ResideNewMenuItem(this, drawable, "Home");
 ```
 
 load background from URL:
 ```java
 //Use this block on your Application class
-ResideNewMenu.imageLoader = new ResideMenu.ImageLoader() {
+ResideNewMenu.imageLoader = new ResideNewMenu.ImageLoader() {
     @Override
     public void loadFromUrl(String url, ImageView imageView) {
         //Exemple of loading from URL with picasso
@@ -106,7 +104,7 @@ resideMenu.setBackground("some url here");
 Do your reside menu configurations, by creating an instance of ResideMenu with your custom layout's resource Ids. If you want to use default layout, just pass that variable as -1.
 
 ```java
-        resideMenu = new ResideMenu(activity, R.layout.menu_left, R.layout.menu_right);
+        resideMenu = new ResideNewMenu(activity, R.layout.menu_left, R.layout.menu_right);
         resideMenu.setBackground(R.drawable.menu_background);
         resideMenu.attachToActivity(activity);
         resideMenu.setScaleValue(0.5f);
@@ -139,7 +137,7 @@ So that in ignored view’s workplace, the slipping gesture will not be allowed 
 3. There are quite noticeable performance issues
 
 ## Thanks
-**[@akobylianskyi](https://github.com/akobylianskyi)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/101);
-**[@faogustavo](https://github.com/faogustavo)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/114);
-**[@niteshsirohi1](https://github.com/niteshsirohi1)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/124);
-**[@rivasedg261](https://github.com/rivasedg261)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/162).
+1. **[@akobylianskyi](https://github.com/akobylianskyi)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/101);
+2. **[@faogustavo](https://github.com/faogustavo)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/114);
+3. **[@niteshsirohi1](https://github.com/niteshsirohi1)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/124);
+4. **[@rivasedg261](https://github.com/rivasedg261)** (https://github.com/SpecialCyCi/AndroidResideMenu/pull/162).
