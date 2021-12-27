@@ -13,7 +13,7 @@
 ### Other
 1. Clone the repository from:  
    `  
-   git clone --recursive https://github.com/l3ger0j/AndroidRsideMenu.git `
+   git clone --recursive https://github.com/l3ger0j/AndroidNewResideMenu.git `
 2. Import library project to your workspace.
 3. Make it as a dependency library project to your main project.
 
