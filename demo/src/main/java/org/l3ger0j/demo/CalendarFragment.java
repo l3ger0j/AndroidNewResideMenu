@@ -33,6 +33,7 @@ public class CalendarFragment extends Fragment {
                 Toast.makeText(getActivity(), "Clicked item!", Toast.LENGTH_LONG).show());
     }
 
+    @NonNull
     private ArrayList<String> getCalendarData(){
         ArrayList<String> calendarList = new ArrayList<>();
         calendarList.add("New Year's Day");

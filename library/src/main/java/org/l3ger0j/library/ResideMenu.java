@@ -16,15 +16,10 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 
-import org.l3ger0j.library.databinding.MenuCustomBinding;
-import org.l3ger0j.library.databinding.MenuCustomLeftScrollviewBinding;
-import org.l3ger0j.library.databinding.MenuCustomRightScrollviewBinding;
-import org.l3ger0j.library.databinding.MenuItemBinding;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class ResideNewMenu extends FrameLayout {
+public class ResideMenu extends FrameLayout {
 
     public static final int DIRECTION_LEFT = 0;
     public static final int DIRECTION_RIGHT = 1;
@@ -61,8 +56,8 @@ public class ResideNewMenu extends FrameLayout {
      * Views which need stop to intercept touch events.
      */
     private List<View> ignoredViews;
-    private List<ResideNewMenuItem> leftMenuItems;
-    private List<ResideNewMenuItem> rightMenuItems;
+    private List<ResideMenuItem> leftMenuItems;
+    private List<ResideMenuItem> rightMenuItems;
     private final DisplayMetrics displayMetrics = new DisplayMetrics();
     private OnMenuListener menuListener;
     private float lastRawX;
@@ -88,7 +83,7 @@ public class ResideNewMenu extends FrameLayout {
         void loadFromUrl(String url, ImageView imageView);
     }
 
-    public ResideNewMenu (Context context) {
+    public ResideMenu(Context context) {
         super(context);
         initViews(context, -1, -1);
     }
@@ -98,8 +93,8 @@ public class ResideNewMenu extends FrameLayout {
      * layouts, but if you use custom menu then do not call addMenuItem because
      * it will not be able to find default views
      */
-    public ResideNewMenu (Context context, int customLeftMenuId,
-                         int customRightMenuId) {
+    public ResideMenu(Context context, int customLeftMenuId,
+                      int customRightMenuId) {
         super(context);
         initViews(context, customLeftMenuId, customRightMenuId);
     }
@@ -231,11 +226,12 @@ public class ResideNewMenu extends FrameLayout {
     public void setBackground (int imageResource) {
         imageViewBackground.setImageResource(imageResource);
     }
+
     public void setBackground(String imageUrl) {
         if (imageLoader != null) {
             imageLoader.loadFromUrl(imageUrl, imageViewBackground);
         } else {
-            Log.e(ResideNewMenu.class.getName(), "ImageLoader not defined.");
+            Log.e(ResideMenu.class.getName(), "ImageLoader not defined.");
         }
     }
 
@@ -256,10 +252,10 @@ public class ResideNewMenu extends FrameLayout {
      * <p/>
      * WARNING: It will be removed from v2.0.
      *
-     * @param menuItem ResideNewMenuItem
+     * @param menuItem ResideMenuItem
      */
     @Deprecated
-    public void addMenuItem(ResideNewMenuItem menuItem) {
+    public void addMenuItem(ResideMenuItem menuItem) {
         this.leftMenuItems.add(menuItem);
         layoutLeftMenu.addView(menuItem);
     }
@@ -267,10 +263,10 @@ public class ResideNewMenu extends FrameLayout {
     /**
      * Add a single items;
      *
-     * @param menuItem ResideNewMenuItem
+     * @param menuItem ResideMenuItem
      * @param direction int
      */
-    public void addMenuItem(ResideNewMenuItem menuItem, int direction) {
+    public void addMenuItem(ResideMenuItem menuItem, int direction) {
         if (direction == DIRECTION_LEFT) {
             this.leftMenuItems.add(menuItem);
             layoutLeftMenu.addView(menuItem);
@@ -283,10 +279,10 @@ public class ResideNewMenu extends FrameLayout {
     /**
      * WARNING: It will be removed from v2.0.
      *
-     * @param menuItems List(ResideNewMenuItem)
+     * @param menuItems List(ResideMenuItem)
      */
     @Deprecated
-    public void setMenuItems(List<ResideNewMenuItem> menuItems) {
+    public void setMenuItems(List<ResideMenuItem> menuItems) {
         this.leftMenuItems = menuItems;
         rebuildMenu();
     }
@@ -294,10 +290,10 @@ public class ResideNewMenu extends FrameLayout {
     /**
      * Set menu items by a array;
      *
-     * @param menuItems List(ResideNewMenuItem)
+     * @param menuItems List(ResideMenuItem)
      * @param direction int
      */
-    public void setMenuItems(List<ResideNewMenuItem> menuItems, int direction) {
+    public void setMenuItems(List<ResideMenuItem> menuItems, int direction) {
         if (direction == DIRECTION_LEFT)
             this.leftMenuItems = menuItems;
         else
@@ -308,13 +304,13 @@ public class ResideNewMenu extends FrameLayout {
     private void rebuildMenu() {
         if (layoutLeftMenu != null) {
             layoutLeftMenu.removeAllViews();
-            for (ResideNewMenuItem leftMenuItem : leftMenuItems)
+            for (ResideMenuItem leftMenuItem : leftMenuItems)
                 layoutLeftMenu.addView(leftMenuItem);
         }
 
         if (layoutRightMenu != null) {
             layoutRightMenu.removeAllViews();
-            for (ResideNewMenuItem rightMenuItem : rightMenuItems)
+            for (ResideMenuItem rightMenuItem : rightMenuItems)
                 layoutRightMenu.addView(rightMenuItem);
         }
     }
@@ -322,19 +318,19 @@ public class ResideNewMenu extends FrameLayout {
     /**
      * WARNING: It will be removed from v2.0.
      *
-     * @return List(ResideNewMenuItem)
+     * @return List(ResideMenuItem)
      */
     @Deprecated
-    public List<ResideNewMenuItem> getMenuItems() {
+    public List<ResideMenuItem> getMenuItems() {
         return leftMenuItems;
     }
 
     /**
      * Return instances of menu items;
      *
-     * @return List(ResideNewMenuItem)
+     * @return List(ResideMenuItem)
      */
-    public List<ResideNewMenuItem> getMenuItems(int direction) {
+    public List<ResideMenuItem> getMenuItems(int direction) {
         if (direction == DIRECTION_LEFT)
             return leftMenuItems;
         else

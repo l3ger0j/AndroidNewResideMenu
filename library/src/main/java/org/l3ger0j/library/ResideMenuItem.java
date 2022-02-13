@@ -10,67 +10,67 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-public class ResideNewMenuItem extends LinearLayout{
+public class ResideMenuItem extends LinearLayout{
 
     /** menu item  icon  */
     private ImageView iv_icon;
     /** menu item  title */
     private TextView tv_title;
 
-    public ResideNewMenuItem(Context context) {
+    public ResideMenuItem(Context context) {
         super(context);
         initViews(context);
     }
 
-    public ResideNewMenuItem(Context context, int icon, int title) {
+    public ResideMenuItem(Context context, int icon, int title) {
         super(context);
         initViews(context);
         iv_icon.setImageResource(icon);
         tv_title.setText(title);
     }
 
-    public ResideNewMenuItem(Context context, int icon, String title) {
+    public ResideMenuItem(Context context, int icon, String title) {
         super(context);
         initViews(context);
         iv_icon.setImageResource(icon);
         tv_title.setText(title);
     }
 
-    public ResideNewMenuItem (Context context, Drawable icon, int title) {
+    public ResideMenuItem(Context context, Drawable icon, int title) {
         super(context);
         initViews(context);
         iv_icon.setImageDrawable(icon);
         tv_title.setText(title);
     }
 
-    public ResideNewMenuItem (Context context, Drawable icon, String title) {
+    public ResideMenuItem(Context context, Drawable icon, String title) {
         super(context);
         initViews(context);
         iv_icon.setImageDrawable(icon);
         tv_title.setText(title);
     }
 
-    public ResideNewMenuItem(Context context, String icon, int title) {
+    public ResideMenuItem(Context context, String icon, int title) {
         super(context);
         initViews(context);
 
         tv_title.setText(title);
-        if (ResideNewMenu.imageLoader != null) {
-            ResideNewMenu.imageLoader.loadFromUrl(icon, iv_icon);
+        if (ResideMenu.imageLoader != null) {
+            ResideMenu.imageLoader.loadFromUrl(icon, iv_icon);
         } else {
-            Log.e(ResideNewMenu.class.getName(), "ImageLoader not defined.");
+            Log.e(ResideMenu.class.getName(), "ImageLoader not defined.");
         }
     }
 
-    public ResideNewMenuItem(Context context, String icon, String title) {
+    public ResideMenuItem(Context context, String icon, String title) {
         super(context);
         initViews(context);
 
         tv_title.setText(title);
-        if (ResideNewMenu.imageLoader != null) {
-            ResideNewMenu.imageLoader.loadFromUrl(icon, iv_icon);
+        if (ResideMenu.imageLoader != null) {
+            ResideMenu.imageLoader.loadFromUrl(icon, iv_icon);
         } else {
-            Log.e(ResideNewMenu.class.getName(), "ImageLoader not defined.");
+            Log.e(ResideMenu.class.getName(), "ImageLoader not defined.");
         }
     }
 
@@ -105,10 +105,10 @@ public class ResideNewMenuItem extends LinearLayout{
      * @param icon String
      */
     public void setIcon(String icon){
-        if (ResideNewMenu.imageLoader != null) {
-            ResideNewMenu.imageLoader.loadFromUrl(icon, iv_icon);
+        if (ResideMenu.imageLoader != null) {
+            ResideMenu.imageLoader.loadFromUrl(icon, iv_icon);
         } else {
-            Log.e(ResideNewMenu.class.getName(), "ImageLoader not defined.");
+            Log.e(ResideMenu.class.getName(), "ImageLoader not defined.");
         }
     }
 

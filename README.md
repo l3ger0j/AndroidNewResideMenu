@@ -1,6 +1,6 @@
 ## AndroidNewResideMenu (fork **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**)
 
-**This fork was made WhoYouAndM3. The original project (hereinafter **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**) with an MIT license does not bear any responsibility for this fork **[AndroidRsideMenu](https://github.com/l3ger0j/AndroidRsideMenu.git)**.**
+**This fork was made WhoYouAndM3. The original project (hereinafter **[AndroidResideMenu](https://github.com/SpecialCyCi/AndroidResideMenu)**) with an MIT license does not bear any responsibility for this fork **[AndroidNewResideMenu](https://github.com/l3ger0j/AndroidRsideMenu.git)**.**
 
 ## Requirements
 1. **[Android Studio](https://developer.android.com/studio/index.html)**

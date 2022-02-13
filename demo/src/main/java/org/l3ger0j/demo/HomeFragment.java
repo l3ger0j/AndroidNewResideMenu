@@ -9,14 +9,14 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import org.l3ger0j.library.ResideNewMenu;
+import org.l3ger0j.library.ResideMenu;
 
 import java.util.Objects;
 
 public class HomeFragment extends Fragment {
 
     private View parentView;
-    private ResideNewMenu resideMenu;
+    private ResideMenu resideMenu;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
         resideMenu = Objects.requireNonNull(parentActivity).getResideMenu();
 
         parentView.findViewById(R.id.btn_open_menu).setOnClickListener(view ->
-                resideMenu.openMenu(ResideNewMenu.DIRECTION_LEFT));
+                resideMenu.openMenu(ResideMenu.DIRECTION_LEFT));
 
         // add gesture operation's ignored views
         FrameLayout ignored_view = parentView.findViewById(R.id.ignored_view);

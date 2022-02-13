@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">AndroidNewReSideMenuDemo</string>
     <string name="settings" translatable="false">Settings</string>
     <string name="profile" translatable="false">Profile</string>
-    <string name="residemenu_demo" translatable="false">ReSideMenu DEMO</string>
+    <string name="reside_menu_demo" translatable="false">ReSideMenu DEMO</string>
     <string name="swipe_gesture" translatable="false">Swipe gesture</string>
     <string name="swipe_to_open_menu" translatable="false">1. Swipe right/left to open menu</string>
     <string name="click_me_to_open_menu" translatable="false">2. Click me to open menu</string>
