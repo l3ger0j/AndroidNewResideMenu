@@ -3,7 +3,7 @@
     package="org.l3ger0j.demo">
 
     <application
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -11,7 +11,6 @@
         android:theme="@style/Theme.AndroidNewResideMenu" >
         <activity
             android:name="org.l3ger0j.demo.MenuActivity"
-            android:theme="@android:style/Theme.Light.NoTitleBar"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
