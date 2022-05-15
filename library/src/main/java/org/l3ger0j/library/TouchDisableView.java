@@ -6,8 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
-class TouchDisableView extends ViewGroup {
-
+public class TouchDisableView extends ViewGroup {
     private View mContent;
 
     //	private int mMode;

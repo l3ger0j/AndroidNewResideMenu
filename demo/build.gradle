@@ -9,7 +9,7 @@ android {
         applicationId "org.l3ger0j.androidrsidemenudemo"
         minSdk 21
         targetSdk 31
-        versionCode 4
+        versionCode 42
         versionName "1.1.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -25,12 +25,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    namespace 'org.l3ger0j.demo'
 }
 
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
     implementation project(path: ':library')
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.testng:testng:7.5'

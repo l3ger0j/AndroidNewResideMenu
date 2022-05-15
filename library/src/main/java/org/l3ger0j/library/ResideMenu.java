@@ -10,9 +10,15 @@ import android.content.res.Resources;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.*;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.*;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 
@@ -69,7 +75,6 @@ public class ResideMenu extends FrameLayout {
     private float mScaleValue = 0.5f;
     private boolean mUse3D;
     private static final int ROTATE_Y_ANGLE = 10;
-
     public static ImageLoader imageLoader;
 
     /*
@@ -142,31 +147,6 @@ public class ResideMenu extends FrameLayout {
      */
     public View getRightMenuView() {
         return scrollViewRightMenu;
-    }
-
-    @Override
-    @Deprecated
-    protected boolean fitSystemWindows(@NonNull Rect insets) {
-        // Applies the content insets to the view's padding, consuming that
-        // content (modifying the insets to be 0),
-        // and returning true. This behavior is off by default and can be
-        // enabled through setFitsSystemWindows(boolean)
-        // in api14+ devices.
-
-        // This is added to fix soft navigationBar's overlapping to content above LOLLIPOP
-        int bottomPadding = viewActivity.getPaddingBottom() + insets.bottom;
-        boolean hasBackKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_BACK);
-        boolean hasHomeKey = KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_HOME);
-        if (!hasBackKey || !hasHomeKey) {//there's a navigation bar
-            bottomPadding += getNavigationBarHeight();
-        }
-
-        this.setPadding(viewActivity.getPaddingLeft() + insets.left,
-                viewActivity.getPaddingTop() + insets.top,
-                viewActivity.getPaddingRight() + insets.right,
-                bottomPadding);
-        insets.left = insets.top = insets.right = insets.bottom = 0;
-        return true;
     }
 
     private int getNavigationBarHeight() {
