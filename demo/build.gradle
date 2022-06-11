@@ -3,14 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 32
 
     defaultConfig {
         applicationId "org.l3ger0j.androidrsidemenudemo"
         minSdk 21
-        targetSdk 31
+        targetSdk 32
         versionCode 43
-        versionName "1.1.6"
+        versionName "1.1.7"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,8 +30,8 @@ android {
 
 dependencies {
 
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
     implementation project(path: ':library')
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.testng:testng:7.5'
