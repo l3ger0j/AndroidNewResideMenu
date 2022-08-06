@@ -9,8 +9,8 @@ android {
         applicationId "org.l3ger0j.androidrsidemenudemo"
         minSdk 21
         targetSdk 32
-        versionCode 44
-        versionName "1.1.8"
+        versionCode 45
+        versionName "1.1.9"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
